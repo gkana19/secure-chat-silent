@@ -29,7 +29,9 @@ app.use("/api/message", messageRoutes);
 app.use("/api", (req, res) => {
   // Forward the request to the backend server
   req
-    .pipe(request("https://secure-backend-production.up.railway.app" + req.url))
+    .pipe(
+      request("https://secure-backend-production.up.railway.app/" + req.url)
+    )
     .pipe(res);
 });
 
