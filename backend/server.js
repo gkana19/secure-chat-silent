@@ -8,6 +8,9 @@ const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const proxy = require("express-http-proxy");
+const http = require("http");
+const socketIO = require("socket.io");
+
 dotenv.config();
 
 connectDB();
@@ -28,20 +31,13 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-app.use(
-  "/api", // Path to proxy
-  proxy("http://localhost:5000") // URL of your server
-);
+const server = http.createServer(app);
 
-const server = app.listen(
-  PORT,
-  console.log(`Server Start on PORT ${PORT}`.yellow.bold)
-);
-
-const io = require("socket.io")(server, {
+const io = socketIO(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "http://localhost:5173", // for react dev http://localhost:3000
+    origin:
+      "https://646cfb23f256b9000844d87f--mellifluous-meerkat-c576c7.netlify.app",
   },
 });
 
@@ -74,3 +70,10 @@ io.on("connection", (socket) => {
     });
   });
 });
+
+server.listen(PORT, console.log(`Server Start on PORT ${PORT}`.yellow.bold));
+
+app.use(
+  "/api", // Path to proxy
+  proxy("https://backend-btlz.onrender.com") // URL of your backend server
+);
