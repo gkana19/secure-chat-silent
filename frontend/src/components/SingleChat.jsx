@@ -49,8 +49,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
       setLoading(true);
 
+      // const { data } = await axios.get(
+      //   `/api/message/${selectedChat._id}`,
+      //   config
+      // );
       const { data } = await axios.get(
-        `/api/message/${selectedChat._id}`,
+        `https://secure-backend-production.up.railway.app/api/message/${selectedChat._id}`,
         config
       );
 
@@ -155,8 +159,16 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         ).toString();
 
         setNewMessage("");
+        // const { data } = await axios.post(
+        //   "/api/message",
+        //   {
+        //     content: encryptedMessage,
+        //     chatId: selectedChat._id,
+        //   },
+        //   config
+        // );
         const { data } = await axios.post(
-          "/api/message",
+          "https://secure-backend-production.up.railway.app/api/message",
           {
             content: encryptedMessage,
             chatId: selectedChat._id,
