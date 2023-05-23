@@ -38,6 +38,7 @@ const io = socketIO(server, {
   cors: {
     origin:
       "https://646cfb23f256b9000844d87f--mellifluous-meerkat-c576c7.netlify.app",
+    // "http://localhost:5173",
   },
 });
 
