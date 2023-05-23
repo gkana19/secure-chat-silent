@@ -18,7 +18,7 @@ const app = express();
 app.use(
   cors({
     origin:
-      "https://646d1f2c85e411000841f164--mellifluous-meerkat-c576c7.netlify.app",
+      "https://646d208851c1f00008f0e7be--mellifluous-meerkat-c576c7.netlify.app",
   })
 );
 
@@ -43,7 +43,7 @@ const io = socketIO(server, {
   pingTimeout: 60000,
   cors: {
     origin:
-      "https://646d1993d06f2b000873ebba--mellifluous-meerkat-c576c7.netlify.app",
+      "https://646d208851c1f00008f0e7be--mellifluous-meerkat-c576c7.netlify.app",
   },
 });
 
