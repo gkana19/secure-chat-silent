@@ -6,17 +6,15 @@ const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
-const proxy = require("express-http-proxy");
+const cors = require("cors");
 const http = require("http");
 const socketIO = require("socket.io");
-const cors = require("cors");
 
 dotenv.config();
 
 connectDB();
 const app = express();
 app.use(cors());
-
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -27,7 +25,13 @@ app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 
-app.use("/api", proxy("https://secure-backend-production.up.railway.app"));
+// Proxy configuration
+app.use("/api", (req, res) => {
+  // Forward the request to the backend server
+  req
+    .pipe(request("https://secure-backend-production.up.railway.app" + req.url))
+    .pipe(res);
+});
 
 app.use(notFound);
 app.use(errorHandler);
