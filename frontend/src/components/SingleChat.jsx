@@ -22,7 +22,7 @@ import CryptoJS from "crypto-js";
 
 // const ENDPOINT = "https://backend-btlz.onrender.com";
 // const ENDPOINT = "http://localhost:5000";
-const ENDPOINT = "https://secure-chat-slient-production.up.railway.app/";
+const ENDPOINT = "https://secure-chat-silent-production.up.railway.app/";
 
 let socket;
 let selectedChatCompare;
