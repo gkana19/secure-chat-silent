@@ -22,7 +22,7 @@ const server = createServer({
 export default defineConfig({
   plugins: [react()],
   server: {
-    middlewareMode: true,
+    // middlewareMode: true,
     server,
     proxy: {
       "/api": {
