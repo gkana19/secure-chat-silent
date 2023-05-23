@@ -38,12 +38,10 @@ const server = app.listen(
   console.log(`Server Start on PORT ${PORT}`.yellow.bold)
 );
 
-
-
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "http://localhost:5173", // for react dev http://localhost:3000
+    origin: "https://backend-btlz.onrender.com/", //http://localhost:5173", // for react dev http://localhost:3000
   },
 });
 
@@ -66,7 +64,7 @@ io.on("connection", (socket) => {
 
   socket.on("new message", (newMessageReceived) => {
     var chat = newMessageReceived.chat;
-    
+
     if (!chat.users) return console.log("chat.users not defined");
 
     chat.users.forEach((user) => {
