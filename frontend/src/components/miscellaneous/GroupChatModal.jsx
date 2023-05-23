@@ -45,7 +45,10 @@ const GroupChatModal = ({ children }) => {
         },
       };
 
-      const { data } = await axios.get(`/api/user?search=${search}`, config);
+      const { data } = await axios.get(
+        `https://secure-backend-production.up.railway.app/api/user?search=${search}`,
+        config
+      );
       setLoading(false);
       setSearchResult(data);
     } catch (error) {
@@ -128,7 +131,6 @@ const GroupChatModal = ({ children }) => {
   };
 
   const handleOnClose = () => {
-
     setSearchResult([]);
     setSelectedUsers([]);
     onClose();
