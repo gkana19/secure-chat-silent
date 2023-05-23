@@ -43,7 +43,7 @@ const io = socketIO(server, {
   pingTimeout: 60000,
   cors: {
     origin:
-      "https://646d1993d06f2b000873ebba--mellifluous-meerkat-c576c7.netlify.app/",
+      "https://646d1993d06f2b000873ebba--mellifluous-meerkat-c576c7.netlify.app",
   },
 });
 
@@ -78,4 +78,4 @@ io.on("connection", (socket) => {
 
 server.listen(PORT, console.log(`Server Start on PORT ${PORT}`.yellow.bold));
 
-app.use("/api", proxy("https://secure-backend-production.up.railway.app/"));
+app.use("/api", proxy("https://secure-backend-production.up.railway.app"));
