@@ -10,11 +10,13 @@ const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const proxy = require("express-http-proxy");
 const http = require("http");
 const socketIO = require("socket.io");
+const cors = require("cors");
 
 dotenv.config();
 
 connectDB();
 const app = express();
+app.use(cors());
 
 app.use(express.json()); // to accept JSON Data
 
@@ -76,5 +78,5 @@ server.listen(PORT, console.log(`Server Start on PORT ${PORT}`.yellow.bold));
 
 app.use(
   "/api", // Path to proxy
-  proxy("https://backend-btlz.onrender.com") // URL of your backend server
+  proxy("https://secure-chat-silent-production.up.railway.app/") // URL of your backend server
 );
