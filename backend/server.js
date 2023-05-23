@@ -27,7 +27,8 @@ app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 
-app.use("/api", proxy("https://secure-backend-production.up.railway.app"));
+// Uncomment the following line to enable proxying
+// app.use("/api", proxy("https://secure-backend-production.up.railway.app"));
 
 app.use(notFound);
 app.use(errorHandler);
@@ -73,5 +74,3 @@ io.on("connection", (socket) => {
 });
 
 server.listen(PORT, console.log(`Server Start on PORT ${PORT}`.yellow.bold));
-
-// app.use("/api", proxy("https://secure-backend-production.up.railway.app"));
