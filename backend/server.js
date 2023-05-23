@@ -15,11 +15,7 @@ dotenv.config();
 
 connectDB();
 const app = express();
-app.use(
-  cors({
-    origin: "https://mellifluous-meerkat-c576c7.netlify.app",
-  })
-);
+app.use(cors());
 
 app.use(express.json());
 

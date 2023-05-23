@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "https://mellifluous-meerkat-c576c7.netlify.app/api": {
+      "/api": {
         target: "https://secure-backend-production.up.railway.app",
         changeOrigin: true,
       },
