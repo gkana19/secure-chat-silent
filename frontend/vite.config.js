@@ -11,6 +11,8 @@ export default defineConfig({
       "/api": {
         target: "https://secure-backend-production.up.railway.app",
         changeOrigin: true,
+        secure: false,
+        ws: true,
       },
     },
   },
