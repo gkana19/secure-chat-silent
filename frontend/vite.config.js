@@ -9,7 +9,8 @@ export default defineConfig({
       "/api": {
         target: "https://backend-btlz.onrender.com", // target: "http://127.0.0.1:5000",
         changeOrigin: true,
-        secure: false,
+        secure: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
   },
