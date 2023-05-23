@@ -1,6 +1,5 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const { chats } = require("./data/data");
 const connectDB = require("./config/db");
 const colors = require("colors");
 const userRoutes = require("./routes/userRoutes");
@@ -18,7 +17,7 @@ connectDB();
 const app = express();
 app.use(cors());
 
-app.use(express.json()); // to accept JSON Data
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("API is Running Successfully");
@@ -39,12 +38,10 @@ const io = socketIO(server, {
   pingTimeout: 60000,
   cors: {
     origin:
-      "https://646cfb23f256b9000844d87f--mellifluous-meerkat-c576c7.netlify.app",
-    // "http://localhost:5173",
+      "https://646d1993d06f2b000873ebba--mellifluous-meerkat-c576c7.netlify.app/",
   },
 });
 
-// create a connection
 io.on("connection", (socket) => {
   console.log("Connected to socket.io");
 
@@ -76,7 +73,4 @@ io.on("connection", (socket) => {
 
 server.listen(PORT, console.log(`Server Start on PORT ${PORT}`.yellow.bold));
 
-app.use(
-  "/api", // Path to proxy
-  proxy("https://secure-backend-production.up.railway.app/") // URL of your backend server
-);
+app.use("/api", proxy("https://secure-backend-production.up.railway.app/"));
