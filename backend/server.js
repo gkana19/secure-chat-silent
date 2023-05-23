@@ -78,5 +78,5 @@ server.listen(PORT, console.log(`Server Start on PORT ${PORT}`.yellow.bold));
 
 app.use(
   "/api", // Path to proxy
-  proxy("https://secure-chat-silent-production.up.railway.app/") // URL of your backend server
+  proxy("https://secure-backend-production.up.railway.app/") // URL of your backend server
 );
