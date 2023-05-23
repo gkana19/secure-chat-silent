@@ -20,7 +20,7 @@ import ScrollableChat from "./ScrollableChat";
 import { io } from "socket.io-client";
 import CryptoJS from "crypto-js";
 
-const ENDPOINT = "https://secure-backend-production.up.railway.app/";
+const ENDPOINT = "https://secure-backend-production.up.railway.app";
 
 let socket;
 let selectedChatCompare;
