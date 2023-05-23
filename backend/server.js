@@ -15,7 +15,11 @@ dotenv.config();
 
 connectDB();
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://mellifluous-meerkat-c576c7.netlify.app",
+  })
+);
 
 app.use(express.json());
 
@@ -37,8 +41,7 @@ const server = http.createServer(app);
 const io = socketIO(server, {
   pingTimeout: 60000,
   cors: {
-    origin:
-      "https://646d208851c1f00008f0e7be--mellifluous-meerkat-c576c7.netlify.app",
+    origin: "https://mellifluous-meerkat-c576c7.netlify.app",
   },
 });
 
