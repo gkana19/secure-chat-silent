@@ -76,12 +76,8 @@ const SideDrawer = () => {
         },
       };
 
-      // const { data } = await axios.get(
-      //   `/api/user?search=${search}`,
-      //   config
-      // );
       const { data } = await axios.get(
-        `https://secure-backend-production.up.railway.app/api/user?search=${search}`,
+        `/api/user?search=${search}`, // `https://secure-backend-production.up.railway.app/api/user?search=${search}`,
         config
       );
       setLoading(false);
@@ -107,13 +103,8 @@ const SideDrawer = () => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      // const { data } = await axios.post(
-      //   `/api/chat`,
-      //   { userId },
-      //   config
-      // );
       const { data } = await axios.post(
-        `https://secure-backend-production.up.railway.app/api/chat`,
+        `/api/chat`, // `https://secure-backend-production.up.railway.app/api/chat`,
         { userId },
         config
       );

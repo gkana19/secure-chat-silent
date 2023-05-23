@@ -43,13 +43,8 @@ const Login = () => {
         },
       };
 
-      // const { data } = await axios.post(
-      //   "/api/user/login",
-      //   { email, password },
-      //   config
-      // );
       const { data } = await axios.post(
-        "/api/user/login",
+        "/api/user/login", // "https://secure-backend-production.up.railway.app/api/user/login",
         { email, password },
         config
       );

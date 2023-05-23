@@ -66,7 +66,7 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
       };
 
       const { data } = await axios.put(
-        "https://secure-backend-production.up.railway.app/api/chat/groupadd",
+        "/api/chat/groupadd", // "https://secure-backend-production.up.railway.app/api/chat/groupadd",
         {
           chatId: selectedChat._id,
           userId: user1._id,
@@ -111,7 +111,7 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
       };
 
       const { data } = await axios.put(
-        "https://secure-backend-production.up.railway.app/api/chat/groupremove",
+        "/api/chat/groupremove", // "https://secure-backend-production.up.railway.app/api/chat/groupremove",
         {
           chatId: selectedChat._id,
           userId: user1._id,
@@ -148,7 +148,7 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
       };
 
       const { data } = await axios.put(
-        "https://secure-backend-production.up.railway.app/api/chat/rename",
+        "/api/chat/rename", // "https://secure-backend-production.up.railway.app/api/chat/rename",
         {
           chatId: selectedChat._id,
           chatName: groupChatName,
@@ -190,7 +190,7 @@ const UpdateGroupChatModal = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
       };
 
       const { data } = await axios.get(
-        `https://secure-backend-production.up.railway.app/api/user?search=${search}`,
+        `/api/user?search=${search}`, // `https://secure-backend-production.up.railway.app/api/user?search=${search}`,
         config
       );
       setLoading(false);

@@ -46,7 +46,7 @@ const GroupChatModal = ({ children }) => {
       };
 
       const { data } = await axios.get(
-        `https://secure-backend-production.up.railway.app/api/user?search=${search}`,
+        `/api/user?search=${search}`, // `https://secure-backend-production.up.railway.app/api/user?search=${search}`,
         config
       );
       setLoading(false);
@@ -83,7 +83,7 @@ const GroupChatModal = ({ children }) => {
       };
 
       const { data } = await axios.post(
-        "https://secure-backend-production.up.railway.app/api/chat/group",
+        "/api/chat/group", //"https://secure-backend-production.up.railway.app/api/chat/group",
         {
           name: groupChatName,
           users: JSON.stringify(selectedUsers.map((u) => u._id)),
