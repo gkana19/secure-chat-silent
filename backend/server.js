@@ -27,8 +27,7 @@ app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 
-// Uncomment the following line to enable proxying
-// app.use("/api", proxy("https://secure-backend-production.up.railway.app"));
+app.use("/api", proxy("https://secure-backend-production.up.railway.app"));
 
 app.use(notFound);
 app.use(errorHandler);
